@@ -1,14 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import sys
+
+
 if __name__ == '__main__':
-    p=1
-    k=0
+    proizvedenie = 1
+    kolichestvo = 0
     print("Введите 10 чисел")
-    A=[]
-    for i in range(1, 11):
-        a = int(input())
-        A.append(a)
+    list_a = list(map(int, input().split()))
     for c in range(0, 10):
-        if A[c] > 0 and A[c] % 3 == 0:
-            p=p*A[c]
-            k=k+1
-    print("Произведение равно", p, "количество равно", k)
+        if list_a[c] > 0 and list_a[c] % 3 == 0:
+            proizvedenie = proizvedenie * list_a[c]
+            kolichestvo = kolichestvo + 1
+    print(f"Произведение равно {proizvedenie}, количество равно {kolichestvo}")

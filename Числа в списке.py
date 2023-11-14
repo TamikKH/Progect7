@@ -1,22 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import sys
+
+
 if __name__ == '__main__':
-    B = int(input("Введите размер списка "))
-    A = []
     s = 0
-    mi = 100000000000
-    for i in range(1, B+1):
-        d = int(input("Введите элемент списка "))
-        A.append(d)
-    for h in range(0, B-1):
-        if abs(A[h]) < mi:
-            mi=A[h]
-    for g in range(1, B-1):
-        if A[g-1] < 0:
-            s = s + abs(A[g])
+    min_a = 999999999999999999999999999999999
+    list_a = list(map(int, input("Ведите строку чисел через пробел ").split()))
+    for i in range(0, len(list_a)):
+        if abs(list_a[i]) < min_a:
+            min_a = abs(list_a[i])
+    for i in range(1, len(list_a)):
+        if list_a[i-1] < 0:
+            s = s + abs(list_a[i])
     a = int(input("Введите границу а "))
     b = int(input("Введите границу в "))
-    for l in range(0, B-1):
-        if A[l] >= a and A[l] <= b:
-            A.pop(l)
-            A.append(0)
-    print("Минимальный модуль списка равен", mi,"Сумма модулей равна", s, "Новый список:", A)
+    for i in range(0, len(list_a)):
+        if a <= list_a[i] <= b:
+            list_a.pop(i)
+            list_a.append(0)
+    print(f"Минимальный модуль списка равен {min_a}, Сумма модулей равна {s}, Новый список: {list_a}")
